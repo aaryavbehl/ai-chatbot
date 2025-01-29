@@ -1,0 +1,596 @@
+html, body {
+    overflow: hidden;
+}
+
+body {
+    font-family: Helvetica;
+    background: #000000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.chat-container {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 40px;
+}
+
+#chat-box {
+    height: 630px;
+    overflow-y: auto;
+    border-radius: 5px;
+    padding: 10px;
+    background: #25252b;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user, .bot {
+    padding:10px;
+    border-radius: 12px;
+    max-width: 80%;
+    word-wrap: break-word;
+    font-size: 23px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.user {
+    background: #008cff;
+    color: #ffffff;
+    align-self: flex-end;
+}
+
+.bot{
+    background: #78e08f;
+    color: #2a2a40;
+    align-self: flex-start;
+}
+
+#quick-messages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.quick-message {
+    background: #ff9ff3;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.quick-message:hover {
+    background: #f368e0;
+}
+
+#chat-form {
+    display: flex;
+}
+
+#user_input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+#quickmessage {
+    border: none;
+    outline: none;
+    background-color: #6c5ce7;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 5px;
+    transition: all ease 0.1s;
+    box-shadow: 0px 5px 0px 0px #a29bfe;
+  }
+  
+#quickmessage:active {
+    transform: translateY(5px);
+    box-shadow: 0px 0px 0px 0px #a29bfe;
+  }
+
+.btn-conteiner {
+    display: flex;
+    justify-content: center;
+    --color-text: #ffffff;
+    --color-background: #ff135a;
+    --color-outline: #ff145b80;
+    --color-shadow: #00000080;
+  }
+  
+  .btn-content {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    padding: 5px 30px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--color-text);
+    background: var(--color-background);
+    transition: 1s;
+    border-radius: 100px;
+    box-shadow: 0 0 0.2em 0 var(--color-background);
+  }
+  
+  .btn-content:hover, .btn-content:focus {
+    transition: 0.5s;
+    -webkit-animation: btn-content 1s;
+    animation: btn-content 1s;
+    outline: 0.1em solid transparent;
+    outline-offset: 0.2em;
+    box-shadow: 0 0 0.4em 0 var(--color-background);
+  }
+  
+  .btn-content .icon-arrow {
+    transition: 0.5s;
+    margin-right: 0px;
+    transform: scale(0.6);
+  }
+  
+  .btn-content:hover .icon-arrow {
+    transition: 0.5s;
+    margin-right: 25px;
+  }
+  
+  .icon-arrow {
+    width: 20px;
+    margin-left: 15px;
+    position: relative;
+    top: 6%;
+  }
+    
+  #arrow-icon-one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+  }
+  
+  #arrow-icon-two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+  }
+  
+  .btn-content:hover #arrow-icon-three {
+    animation: color_anim 1s infinite 0.2s;
+  }
+  
+  .btn-content:hover #arrow-icon-one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+  }
+  
+  .btn-content:hover #arrow-icon-two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+  }
+  
+  @keyframes color_anim {
+    0% {
+      fill: white;
+    }
+  
+    50% {
+      fill: var(--color-background);
+    }
+  
+    100% {
+      fill: white;
+    }
+  }
+  
+  @-webkit-keyframes btn-content {
+    0% {
+      outline: 0.2em solid var(--color-background);
+      outline-offset: 0;
+    }
+  }
+  
+  @keyframes btn-content {
+    0% {
+      outline: 0.2em solid var(--color-background);
+      outline-offset: 0;
+    }
+  }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.input {
+    width: 100%;
+    max-width: 270px;
+    height: 60px;
+    padding: 12px;
+    font-size: 18px;
+    font-family: "Courier New", monospace;
+    color: #000;
+    background-color: #fff;
+    border: 4px solid #000;
+    border-radius: 0;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 8px 8px 0 #000;
+  }
+  
+  .input::placeholder {
+    color: #888;
+  }
+  
+  .input:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 #000;
+  }
+  
+  .input:focus {
+    background-color: #000;
+    color: #fff;
+    border-color: #ffffff;
+  }
+  
+  .input:focus::placeholder {
+    color: #fff;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
+  .input:focus::after {
+    content: "|";
+    position: absolute;
+    right: 10px;
+    animation: blink 0.7s step-end infinite;
+  }
+  
+  .input:valid {
+    animation: typing 2s steps(30, end);
+  }
+  .input-container {
+    position: relative;
+    width: 100%;
+    max-width: 270px;
+  }
+  
+  .input {
+    width: 100%;
+    height: 60px;
+    padding: 12px;
+    font-size: 18px;
+    font-family: Helvetica;
+    color: #000;
+    background-color: #fff;
+    border: 4px solid #000;
+    border-radius: 0;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 8px 8px 0 #000;
+  }
+  
+  .input::placeholder {
+    color: #888;
+  }
+  
+  .input:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 #000;
+  }
+  
+  .input:focus {
+    background-color: #010101;
+    color: #fff;
+    border-color: #d6d9dd;
+  }
+  
+  .input:focus::placeholder {
+    color: #fff;
+  }
+  
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px) rotate(-5deg);
+    }
+    50% {
+      transform: translateX(5px) rotate(5deg);
+    }
+    75% {
+      transform: translateX(-5px) rotate(-5deg);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .input:focus {
+    animation: shake 0.5s ease-in-out;
+  }
+  
+  @keyframes glitch {
+    0% {
+      transform: none;
+      opacity: 1;
+    }
+    7% {
+      transform: skew(-0.5deg, -0.9deg);
+      opacity: 0.75;
+    }
+    10% {
+      transform: none;
+      opacity: 1;
+    }
+    27% {
+      transform: none;
+      opacity: 1;
+    }
+    30% {
+      transform: skew(0.8deg, -0.1deg);
+      opacity: 0.75;
+    }
+    35% {
+      transform: none;
+      opacity: 1;
+    }
+    52% {
+      transform: none;
+      opacity: 1;
+    }
+    55% {
+      transform: skew(-1deg, 0.2deg);
+      opacity: 0.75;
+    }
+    50% {
+      transform: none;
+      opacity: 1;
+    }
+    72% {
+      transform: none;
+      opacity: 1;
+    }
+    75% {
+      transform: skew(0.4deg, 1deg);
+      opacity: 0.75;
+    }
+    80% {
+      transform: none;
+      opacity: 1;
+    }
+    100% {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  
+  .input:not(:placeholder-shown) {
+    animation: glitch 1s linear infinite;
+  }
+  
+  .input-container::after {
+    content: "|";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #000;
+    animation: blink 0.7s step-end infinite;
+  }
+  
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  .input:focus + .input-container::after {
+    color: #fff;
+  }
+  
+  .input:not(:placeholder-shown) {
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 0 #000;
+  }
+
+.chat-container {
+    position: absolute;
+    inset: 0;
+  }
+  
+  .chat-container::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    inset: -145%;
+    rotate: -45deg;
+    background: #000;
+    background-image: radial-gradient(4px 100px at 0px 235px, rgb(255, 0, 0), #0000),
+      radial-gradient(4px 100px at 300px 235px, #0f0, #0000),
+      radial-gradient(1.5px 1.5px at 150px 117.5px, rgb(225, 255, 56) 100%, #0000 150%),
+      radial-gradient(4px 100px at 0px 252px, #0f0, #0000),
+      radial-gradient(4px 100px at 300px 252px, #0f0, #0000),
+      radial-gradient(1.5px 1.5px at 150px 126px, #0f0 100%, #0000 150%),
+      radial-gradient(4px 100px at 0px 150px, #0f0, #0000),
+      radial-gradient(4px 100px at 300px 150px, #0f0, #0000),
+      radial-gradient(1.5px 1.5px at 150px 75px, #0f0 100%, #0000 150%),
+      radial-gradient(4px 100px at 0px 253px, rgb(119, 228, 255), #0000),
+      radial-gradient(4px 100px at 300px 253px, #0f0, #0000),
+      radial-gradient(1.5px 1.5px at 150px 126.5px, #0f0 100%, #0000 150%),
+      radial-gradient(4px 100px at 0px 204px, #0f0, #0000),
+      radial-gradient(4px 100px at 300px 204px, #0f0, #0000),
+      radial-gradient(1.5px 1.5px at 150px 102px, #0f0 100%, #0000 150%),
+      radial-gradient(4px 100px at 0px 134px, rgb(255, 0, 255), #0000),
+      radial-gradient(4px 100px at 300px 134px, #0f0, #0000),
+      radial-gradient(1.5px 1.5px at 150px 67px, #0f0 100%, #0000 150%),
+      radial-gradient(4px 100px at 0px 179px, #0f0, #0000),
+      radial-gradient(4px 100px at 300px 179px, #0f0, #0000),
+      radial-gradient(1.5px 1.5px at 150px 89.5px, #0f0 100%, #0000 150%),
+      radial-gradient(4px 100px at 0px 299px, #0f0, #0000),
+      radial-gradient(4px 100px at 300px 299px, #0f0, #0000),
+      radial-gradient(1.5px 1.5px at 150px 149.5px, #0f0 100%, #0000 150%),
+      radial-gradient(4px 100px at 0px 215px, #0f0, #0000),
+      radial-gradient(4px 100px at 300px 215px, #0f0, #0000),
+      radial-gradient(1.5px 1.5px at 150px 107.5px, #0f0 100%, #0000 150%),
+      radial-gradient(4px 100px at 0px 281px, #0f0, #0000),
+      radial-gradient(4px 100px at 300px 281px, #0f0, #0000),
+      radial-gradient(1.5px 1.5px at 150px 140.5px, #0f0 100%, #0000 150%),
+      radial-gradient(4px 100px at 0px 158px, #0f0, #0000),
+      radial-gradient(4px 100px at 300px 158px, #0f0, #0000),
+      radial-gradient(1.5px 1.5px at 150px 79px, #0f0 100%, #0000 150%),
+      radial-gradient(4px 100px at 0px 210px, rgb(255, 255, 255), #0000),
+      radial-gradient(4px 100px at 300px 210px, rgb(255, 255, 255), #0000),
+      radial-gradient(1.5px 1.5px at 150px 105px, rgb(255, 255, 255) 100%, #0000 150%);
+    background-size:
+      300px 235px,
+      300px 235px,
+      300px 235px,
+      300px 252px,
+      300px 252px,
+      300px 252px,
+      300px 150px,
+      300px 150px,
+      300px 150px,
+      300px 253px,
+      300px 253px,
+      300px 253px,
+      300px 204px,
+      300px 204px,
+      300px 204px,
+      300px 134px,
+      300px 134px,
+      300px 134px,
+      300px 179px,
+      300px 179px,
+      300px 179px,
+      300px 299px,
+      300px 299px,
+      300px 299px,
+      300px 215px,
+      300px 215px,
+      300px 215px,
+      300px 281px,
+      300px 281px,
+      300px 281px,
+      300px 158px,
+      300px 158px,
+      300px 158px,
+      300px 210px,
+      300px 210px,
+      300px 210px;
+    animation: hi 150s linear infinite;
+  }
+  
+  @keyframes hi {
+    0% {
+      background-position:
+        0px 220px,
+        3px 220px,
+        151.5px 337.5px,
+        25px 24px,
+        28px 24px,
+        176.5px 150px,
+        50px 16px,
+        53px 16px,
+        201.5px 91px,
+        75px 224px,
+        78px 224px,
+        226.5px 350.5px,
+        100px 19px,
+        103px 19px,
+        251.5px 121px,
+        125px 120px,
+        128px 120px,
+        276.5px 187px,
+        150px 31px,
+        153px 31px,
+        301.5px 120.5px,
+        175px 235px,
+        178px 235px,
+        326.5px 384.5px,
+        200px 121px,
+        203px 121px,
+        351.5px 228.5px,
+        225px 224px,
+        228px 224px,
+        376.5px 364.5px,
+        250px 26px,
+        253px 26px,
+        401.5px 105px,
+        275px 75px,
+        278px 75px,
+        426.5px 180px;
+    }
+    to {
+      background-position:
+        0px 6800px,
+        3px 6800px,
+        151.5px 6917.5px,
+        25px 13632px,
+        28px 13632px,
+        176.5px 13758px,
+        50px 5416px,
+        53px 5416px,
+        201.5px 5491px,
+        75px 17175px,
+        78px 17175px,
+        226.5px 17301.5px,
+        100px 5119px,
+        103px 5119px,
+        251.5px 5221px,
+        125px 8428px,
+        128px 8428px,
+        276.5px 8495px,
+        150px 9876px,
+        153px 9876px,
+        301.5px 9965.5px,
+        175px 13391px,
+        178px 13391px,
+        326.5px 13540.5px,
+        200px 14741px,
+        203px 14741px,
+        351.5px 14848.5px,
+        225px 18770px,
+        228px 18770px,
+        376.5px 18910.5px,
+        250px 5082px,
+        253px 5082px,
+        401.5px 5161px,
+        275px 6375px,
+        278px 6375px,
+        426.5px 6480px;
+    }
+  }
