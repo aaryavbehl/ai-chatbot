@@ -1,3 +1,5 @@
+https://cloud-i3ct9ww5h-hack-club-bot.vercel.app/0demo.png
+
 # HackAI
 
 - HackAI is a chatbot powered by the Hack Club API. The project consists of a frontend and a backend.
