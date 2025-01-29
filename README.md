@@ -1,4 +1,4 @@
-https://cloud-i3ct9ww5h-hack-club-bot.vercel.app/0demo.png
+![Alt text](https://cloud-i3ct9ww5h-hack-club-bot.vercel.app/0demo.png)
 
 # HackAI
 
